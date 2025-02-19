@@ -15,4 +15,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Application\ECommerce.Application.csproj" />
+    <ProjectReference Include="..\ECommerce.DAL.SqlServer\ECommerce.DAL.SqlServer.csproj" />
+  </ItemGroup>
+
 </Project>

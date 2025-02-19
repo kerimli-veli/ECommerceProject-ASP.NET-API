@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceProject-ASP.NET-API", "ECommerceProject-ASP.NET-API\ECommerceProject-ASP.NET-API.csproj", "{3D0E01E2-30B5-4106-AD0B-E08EDB19F33F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C4D1473-7996-414E-81AD-57584F70C50D} = {5C4D1473-7996-414E-81AD-57584F70C50D}
+		{D9785CA0-7400-4F74-BC3F-188EA8E82483} = {D9785CA0-7400-4F74-BC3F-188EA8E82483}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Domain", "ECommerce.Domain\ECommerce.Domain.csproj", "{C40EB650-CEA0-42A4-94E5-1446E2493223}"
 EndProject

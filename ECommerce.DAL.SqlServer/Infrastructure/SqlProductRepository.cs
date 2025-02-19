@@ -17,10 +17,11 @@ public class SqlProductRepository : BaseSqlRepository, IProductsRepository
     {
         var sql = @"INSERT INTO Products ([ProductName],[QuantityPerUnit],
                     [UnitPrice],[UnitsInStock],[UnitsOnOrder]  [CreatedBy]) 
-                    VALUES (@ProductName, @QuantityperUnit,@UnitPrice @UnitsInStock @UnitsOnOrder @CreatedBy)";
+                    VALUES (@ProductName, @QuantityperUnit,@UnitPrice @UnitsInStock @UnitsOnOrder @CreatedBy); SELECT SCOPE_IDENTITY()";
 
         using var conn = OpenConnection();
-        await conn.ExecuteScalarAsync<int>(sql, product);
+        var genereatedId = await conn.ExecuteScalarAsync<int>(sql, product);
+        product.Id = genereatedId;
 
     }
 

@@ -20,10 +20,11 @@ public class SqlCustomerRepository : BaseSqlRepository, ICustomersRepository
                     [ContactTitle], [Address], [City], [Region], [PostalCode],
                     [Country], [Phone], [Fax])
                     VALUES (@CustomerId, @CompanyName, @ContactName, @ContactTitle,
-                    @Address, @City, @Region, @PostalCode, @Country, @Phone, @Fax)";
+                    @Address, @City, @Region, @PostalCode, @Country, @Phone, @Fax); SELECT SCOPE_IDENTITY() ";
 
         using var conn = OpenConnection();
-        await conn.ExecuteScalarAsync<int>(sql, customer);
+        var genereatedId = await conn.ExecuteScalarAsync<int>(sql , customer );
+        customer.Id = genereatedId;
     }
 
     public async Task<bool> Delete(string customerId, int deletedBy)
