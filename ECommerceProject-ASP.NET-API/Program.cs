@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using ECommerce.Application;
 using ECommerce.DAL.SqlServer;
+using ECommerceProject_ASP.NET_API.Infrastructure.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,5 +32,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.Run();

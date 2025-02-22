@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Handlers\QuerieHandlers\" />
-    <Folder Include="CQRS\Queries\Responses\" />
-    <Folder Include="CQRS\Queries\Requests\" />
+    <Folder Include="CQRS\Customers\Handlers\QueriesHandler\" />
+    <Folder Include="CQRS\Customers\Queries\Requests\" />
+    <Folder Include="CQRS\Customers\Queries\Responses\" />
+    <Folder Include="CQRS\Product\Handlers\QuerieHandlers\" />
+    <Folder Include="CQRS\Product\Queries\Responses\" />
+    <Folder Include="CQRS\Product\Queries\Requests\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,9 +10,12 @@ public class SqlUnitOfWork(string connectionString, AppDbContext context) : IUni
     private readonly string _connectionString = connectionString;
     private readonly AppDbContext _context = context;
 
-    public SqlProductRepository _categoryRepository;
+    public SqlProductRepository _productRepository;
     public SqlCustomerRepository _customerRepository;
+    public SqlEmloyeeRepository _employeeRepository;
 
-    public IProductsRepository ProductsRepostory =>_categoryRepository ??  new SqlProductRepository(_connectionString, _context);
+    public IProductsRepository ProductsRepostory =>_productRepository ??  new SqlProductRepository(_connectionString, _context);
     public ICustomersRepository CustomersRepository => _customerRepository ?? new SqlCustomerRepository(_connectionString, _context);
+
+    public IEmployeeRepository EmployeeRepository => _employeeRepository ?? new SqlEmloyeeRepository( _context);
 }

@@ -5,14 +5,10 @@ using ECommerce.Repository.Repository;
 
 namespace ECommerce.DAL.SqlServer.Infrastructure;
 
-public class SqlCustomerRepository : BaseSqlRepository, ICustomersRepository
+public class SqlCustomerRepository(string connectionString, AppDbContext context) : BaseSqlRepository(connectionString), ICustomersRepository
 {
 
-    private readonly AppDbContext _context;
-    public SqlCustomerRepository(string connectionString, AppDbContext context) : base(connectionString)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
 
     public async Task AddAsync(Customers customer)
     {

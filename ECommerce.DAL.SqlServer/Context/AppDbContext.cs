@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.DAL.SqlServer.Context;
 
-public class AppDbContext : DbContext
+public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
-    public AppDbContext(DbContextOptions options) : base(options)
-    {
-    }
-
     public DbSet<Customers> Customers { get; set; }
     public DbSet<Product> Products { get; set; }
+    public DbSet<Employee> Employees { get; set; }
+
 }

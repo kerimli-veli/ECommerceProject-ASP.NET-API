@@ -1,11 +1,11 @@
-﻿using ECommerce.Application.CQRS.Commands.Requests;
-using ECommerce.Application.CQRS.Commands.Responses;
+﻿using ECommerce.Application.CQRS.Product.Commands.Requests;
+using ECommerce.Application.CQRS.Product.Commands.Responses;
 using ECommerce.Application.GlobalResponses.Generics;
 using ECommerce.Domain.Entities;
 using ECommerce.Repository.Common;
 using MediatR;
 
-namespace ECommerce.Application.CQRS.Handlers.CommandHandlers;
+namespace ECommerce.Application.CQRS.Product.Handlers.CommandHandlers;
 
 public class CreateProductHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateProductRequest, Result<CreateProductResponse>>
 {

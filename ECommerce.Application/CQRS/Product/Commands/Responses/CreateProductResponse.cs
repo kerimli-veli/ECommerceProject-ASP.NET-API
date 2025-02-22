@@ -1,4 +1,4 @@
-﻿namespace ECommerce.Application.CQRS.Commands.Responses;
+﻿namespace ECommerce.Application.CQRS.Product.Commands.Responses;
 
 public class CreateProductResponse
 {

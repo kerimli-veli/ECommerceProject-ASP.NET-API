@@ -1,5 +1,5 @@
-﻿using ECommerce.Application.CQRS.Commands.Requests;
-using ECommerce.Application.CQRS.Commands.Responses;
+﻿using ECommerce.Application.CQRS.Product.Commands.Requests;
+using ECommerce.Application.CQRS.Product.Commands.Responses;
 using ECommerce.Application.GlobalResponses.Generics;
 using MediatR;
 using Microsoft.AspNetCore.Http;

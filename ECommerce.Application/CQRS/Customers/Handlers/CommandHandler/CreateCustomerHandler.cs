@@ -1,11 +1,12 @@
-﻿using ECommerce.Application.CQRS.Commands.Requests;
-using ECommerce.Application.CQRS.Commands.Responses;
+﻿using ECommerce.Application.CQRS.Customers.Commands.Requests;
+using ECommerce.Application.CQRS.Customers.Commands.Responses;
 using ECommerce.Application.GlobalResponses.Generics;
+using ECommerce.Common.Exceptions;
 using ECommerce.Domain.Entities;
 using ECommerce.Repository.Common;
 using MediatR;
 
-namespace ECommerce.Application.CQRS.Handlers.CommandHandlers;
+namespace ECommerce.Application.CQRS.Customers.Handlers.CommandHandler;
 
 public class CreateCustomerHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateCustomerRequest, Result<CreateCustomerResponse>>
 {
@@ -18,23 +19,18 @@ public class CreateCustomerHandler(IUnitOfWork unitOfWork) : IRequestHandler<Cre
             CompanyName = request.CompanyName
         };
 
-        if(string.IsNullOrWhiteSpace(request.CompanyName))
+        if (string.IsNullOrWhiteSpace(request.CompanyName))
         {
-            return new Result<CreateCustomerResponse>
-            {
-                Data = null,
-                Errors = ["Customer name is required"],
-                IsSuccess = false
-            };
+            throw new BadRequestException("Company name is required");
         }
 
-       await _unitOfWork.CustomersRepository.AddAsync(customer);
+        await _unitOfWork.CustomersRepository.AddAsync(customer);
 
-       CreateCustomerResponse response = new()
-       {
-           CustomerId = customer.CustomerId,
-           CompanyName = request.CompanyName
-       };
+        CreateCustomerResponse response = new()
+        {
+            CustomerId = customer.CustomerId,
+            CompanyName = request.CompanyName
+        };
 
         return new Result<CreateCustomerResponse>
         {

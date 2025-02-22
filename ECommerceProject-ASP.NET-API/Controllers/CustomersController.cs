@@ -1,5 +1,5 @@
-﻿using ECommerce.Application.CQRS.Commands.Requests;
-using ECommerce.Application.CQRS.Commands.Responses;
+﻿using ECommerce.Application.CQRS.Customers.Commands.Requests;
+using ECommerce.Application.CQRS.Customers.Commands.Responses;
 using ECommerce.Application.GlobalResponses.Generics;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -25,4 +25,7 @@ public class CustomersController(ISender sender) : ControllerBase
         }
         return BadRequest(response.Errors);
     }
+
+    
+
 }
