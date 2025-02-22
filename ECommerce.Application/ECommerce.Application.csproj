@@ -7,17 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="CQRS\Handlers\QuerieHandlers\" />
     <Folder Include="CQRS\Queries\Responses\" />
     <Folder Include="CQRS\Queries\Requests\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ECommerce.Common\ECommerce.Common.csproj" />
+    <ProjectReference Include="..\ECommerce.Repository\ECommerce.Repository.csproj" />
   </ItemGroup>
 
 </Project>
