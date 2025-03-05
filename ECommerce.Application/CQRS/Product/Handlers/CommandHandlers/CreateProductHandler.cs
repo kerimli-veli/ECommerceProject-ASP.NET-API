@@ -13,10 +13,11 @@ public class CreateProductHandler(IUnitOfWork unitOfWork) : IRequestHandler<Crea
 
     public async Task<Result<CreateProductResponse>> Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
-        Product product = new()
+        ECommerce.Domain.Entities.Product product = new()
         {
             ProductName = request.ProductName
         };
+
 
         if (string.IsNullOrWhiteSpace(request.ProductName))
         {
@@ -28,11 +29,12 @@ public class CreateProductHandler(IUnitOfWork unitOfWork) : IRequestHandler<Crea
             };
         }
 
-        await _unitOfWork.ProductsRepostory.AddAsync(product);
+        await _unitOfWork.ProductRepository.AddAsync(product);
+
 
         CreateProductResponse response = new()
         {
-            Id = product.Id,
+            
             ProductName = request.ProductName
         };
 

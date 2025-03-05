@@ -5,17 +5,13 @@ using ECommerce.Repository.Repository;
 
 namespace ECommerce.DAL.SqlServer.Infrastructure;
 
-public class SqlProductRepository : BaseSqlRepository, IProductsRepository
+public class SqlProductRepository(string connectionString, AppDbContext context) : BaseSqlRepository(connectionString), IProductsRepository
 {
-    private readonly AppDbContext _context;
-    public SqlProductRepository(string connectionString, AppDbContext context) : base(connectionString)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
 
     public async Task AddAsync(Product product)
     {
-        var sql = @"INSERT INTO Products ([ProductName],[QuantityPerUnit],
+        var sql = @"INSERT INTO Products ( [Id],  [ProductName],[QuantityPerUnit],
                     [UnitPrice],[UnitsInStock],[UnitsOnOrder]  [CreatedBy]) 
                     VALUES (@ProductName, @QuantityperUnit,@UnitPrice @UnitsInStock @UnitsOnOrder @CreatedBy); SELECT SCOPE_IDENTITY()";
 

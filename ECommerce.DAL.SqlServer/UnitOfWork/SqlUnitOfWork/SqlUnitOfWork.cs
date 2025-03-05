@@ -12,10 +12,10 @@ public class SqlUnitOfWork(string connectionString, AppDbContext context) : IUni
 
     public SqlProductRepository _productRepository;
     public SqlCustomerRepository _customerRepository;
-    public SqlEmloyeeRepository _employeeRepository;
+    
 
     public IProductsRepository ProductsRepostory =>_productRepository ??  new SqlProductRepository(_connectionString, _context);
     public ICustomersRepository CustomersRepository => _customerRepository ?? new SqlCustomerRepository(_connectionString, _context);
 
-    public IEmployeeRepository EmployeeRepository => _employeeRepository ?? new SqlEmloyeeRepository( _context);
+    
 }

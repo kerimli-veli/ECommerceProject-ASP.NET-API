@@ -4,9 +4,9 @@ namespace ECommerce.Repository.Common;
 
 public class IUnitOfWork
 {
-    public IProductsRepository ProductsRepostory { get; }
+    public IProductsRepository ProductRepository { get; }
     public ICustomersRepository CustomersRepository { get; }
 
-    public IEmployeeRepository EmployeeRepository { get; }
+    
 
 }

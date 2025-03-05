@@ -7,6 +7,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Customers> Customers { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Employee> Employees { get; set; }
+    
 
 }

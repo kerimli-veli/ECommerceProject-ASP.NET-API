@@ -6,6 +6,7 @@ using ECommerce.Domain.Entities;
 using ECommerce.Repository.Common;
 using MediatR;
 
+
 namespace ECommerce.Application.CQRS.Customers.Handlers.CommandHandler;
 
 public class CreateCustomerHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateCustomerRequest, Result<CreateCustomerResponse>>
@@ -14,7 +15,7 @@ public class CreateCustomerHandler(IUnitOfWork unitOfWork) : IRequestHandler<Cre
 
     public async Task<Result<CreateCustomerResponse>> Handle(CreateCustomerRequest request, CancellationToken cancellationToken)
     {
-        Customers customer = new()
+        ECommerce.Domain.Entities.Customers customer = new()
         {
             CompanyName = request.CompanyName
         };
